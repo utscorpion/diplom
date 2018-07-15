@@ -12,28 +12,28 @@ use AdminForm;
 use AdminFormElement;
 
 
-
 /**
- * Class news
+ * Class subcategories
  *
- * @property \App\Admin\Models\News $model
+ * @property \App\Admin\Models\Subcategory $model
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */
-class news extends Section implements Initializable
+class subcategories extends Section implements Initializable
 {
     /**
      * @var \App\Admin\Models\Tag
      */
-    protected $model = '\App\Admin\Models\News';
+    protected $model = '\App\Admin\Models\Subcategory';
 
     /**
      * Initialize class.
      */
     public function initialize()
     {
+        // Добавление пункта меню и счетчика кол-ва записей в разделе
         $this->addToNavigation($priority = 500, function() {
-            return \App\Admin\Models\News::count();
+            return \App\Admin\Models\Subcategory::count();
         });
 
         $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
@@ -51,23 +51,23 @@ class news extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Новости';
+    protected $title = 'Название подкатегории';
 
     /**
      * @var string
      */
-    protected $alias = 'news';
+    protected $alias = 'subcategory';
 
     /**
      * @return DisplayInterface
      */
     public function onDisplay()
     {
-        return AdminDisplay::table()->setColumns([
-            AdminColumn::text('title', 'Title'),
-            AdminColumn::text('description', 'Описание'),
-            AdminColumn::text('body', 'Тело новости')
-        ])->paginate(5);
+        return AdminDisplay::table()
+            ->setHtmlAttribute('class', 'table-primary')
+            ->setColumns(
+                AdminColumn::text('title', 'Название подкатегории')
+            )->paginate(20);
     }
 
     /**
@@ -78,15 +78,12 @@ class news extends Section implements Initializable
     public function onEdit($id)
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
-            AdminFormElement::wysiwyg('body', 'Тело', 'simplemde')->required(),
-            AdminFormElement::select('tag_id')->setLabel('Тег')
-                ->setModelForOptions(\App\Admin\Models\Tag::class)
-                ->setHtmlAttribute('placeholder', 'Выберите тег')
+            AdminFormElement::text('title', 'Название подкатегории')->required(),
+            AdminFormElement::select('category_id')->setLabel('')
+                ->setModelForOptions(\App\Admin\Models\Category::class)
+                ->setHtmlAttribute('placeholder', 'Выберите категорию')
                 ->setDisplay('title')
                 ->required(),
-            AdminFormElement::image('picture')->required()
         ]);
     }
 
@@ -96,15 +93,12 @@ class news extends Section implements Initializable
     public function onCreate()
     {
         return AdminForm::panel()->addBody([
-            AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
-            AdminFormElement::wysiwyg('body', 'Тело', 'simplemde')->required(),
-            AdminFormElement::select('tag_id')->setLabel('Тег')
-                ->setModelForOptions(\App\Admin\Models\Tag::class)
-                ->setHtmlAttribute('placeholder', 'Выберите тег')
+            AdminFormElement::text('title', 'Название подкатегории')->required(),
+            AdminFormElement::select('category_id')->setLabel('')
+                ->setModelForOptions(\App\Admin\Models\Category::class)
+                ->setHtmlAttribute('placeholder', 'Выберите категорию')
                 ->setDisplay('title')
                 ->required(),
-            AdminFormElement::image('picture')->required()
         ]);
     }
 
@@ -123,6 +117,7 @@ class news extends Section implements Initializable
     {
         // remove if unused
     }
+
 
     /**
      * @return string

@@ -12,28 +12,22 @@ use AdminForm;
 use AdminFormElement;
 
 
-
 /**
- * Class news
+ * Class products
  *
- * @property \App\Admin\Models\News $model
+ * @property \App\Admin\Models\Product $model
  *
  * @see http://sleepingowladmin.ru/docs/model_configuration_section
  */
-class news extends Section implements Initializable
+class products extends Section implements Initializable
 {
-    /**
-     * @var \App\Admin\Models\Tag
-     */
-    protected $model = '\App\Admin\Models\News';
-
     /**
      * Initialize class.
      */
     public function initialize()
     {
         $this->addToNavigation($priority = 500, function() {
-            return \App\Admin\Models\News::count();
+            return \App\Admin\Models\Product::count();
         });
 
         $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
@@ -51,12 +45,12 @@ class news extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Новости';
+    protected $title = 'Продукция';
 
     /**
      * @var string
      */
-    protected $alias = 'news';
+    protected $alias = 'products';
 
     /**
      * @return DisplayInterface
@@ -66,7 +60,8 @@ class news extends Section implements Initializable
         return AdminDisplay::table()->setColumns([
             AdminColumn::text('title', 'Title'),
             AdminColumn::text('description', 'Описание'),
-            AdminColumn::text('body', 'Тело новости')
+            AdminColumn::text('characteristic', 'Характеристика'),
+            AdminColumn::text('category_id', 'Категория'),
         ])->paginate(5);
     }
 
@@ -79,11 +74,16 @@ class news extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
-            AdminFormElement::wysiwyg('body', 'Тело', 'simplemde')->required(),
-            AdminFormElement::select('tag_id')->setLabel('Тег')
-                ->setModelForOptions(\App\Admin\Models\Tag::class)
-                ->setHtmlAttribute('placeholder', 'Выберите тег')
+            AdminFormElement::wysiwyg('description', 'Описание', 'simplemde')->required(),
+            AdminFormElement::wysiwyg('characteristic', 'Характеристика', 'simplemde')->required(),
+            AdminFormElement::select('category_id')->setLabel('Категория')
+                ->setModelForOptions(\App\Admin\Models\Category::class)
+                ->setHtmlAttribute('placeholder', 'Выберите категорию')
+                ->setDisplay('title')
+                ->required(),
+            AdminFormElement::select('subcategory_id')->setLabel('Подкатегория')
+                ->setModelForOptions(\App\Admin\Models\Subcategory::class)
+                ->setHtmlAttribute('placeholder', 'Выберите подкатегория')
                 ->setDisplay('title')
                 ->required(),
             AdminFormElement::image('picture')->required()
@@ -97,11 +97,16 @@ class news extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
-            AdminFormElement::wysiwyg('body', 'Тело', 'simplemde')->required(),
-            AdminFormElement::select('tag_id')->setLabel('Тег')
-                ->setModelForOptions(\App\Admin\Models\Tag::class)
-                ->setHtmlAttribute('placeholder', 'Выберите тег')
+            AdminFormElement::wysiwyg('description', 'Описание', 'simplemde')->required(),
+            AdminFormElement::wysiwyg('characteristic', 'Характеристика', 'simplemde')->required(),
+            AdminFormElement::select('category_id')->setLabel('Категория')
+                ->setModelForOptions(\App\Admin\Models\Category::class)
+                ->setHtmlAttribute('placeholder', 'Выберите категорию')
+                ->setDisplay('title')
+                ->required(),
+            AdminFormElement::select('subcategory_id')->setLabel('Подкатегория')
+                ->setModelForOptions(\App\Admin\Models\Subcategory::class)
+                ->setHtmlAttribute('placeholder', 'Выберите подкатегория')
                 ->setDisplay('title')
                 ->required(),
             AdminFormElement::image('picture')->required()

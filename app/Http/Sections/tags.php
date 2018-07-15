@@ -104,6 +104,9 @@ class tags extends Section implements Initializable
         // remove if unused
     }
 
+    /**
+     * @return string
+     */
     public function getIcon()
     {
         return 'fa fa-gear';

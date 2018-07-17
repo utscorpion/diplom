@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 
 class TagsTableSeeder extends Seeder
 {
-
     /**
      * Locations as a constants
      */

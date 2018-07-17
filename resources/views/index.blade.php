@@ -93,10 +93,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	     		<span> </span>
 	     	</div>
 	     	<div class="col-sm-5 header_right">
-	     	   <h1>Increase your engergy level with <span class="m_1">garcinia cambogia</span></h1>
+	     	   <h1>Increase your engergy level with garcinia cambogia</h1>
 	     	   <div class="header_box">
 	     	   	<h2>Try it today</h2>
-	     	      <form>
+	     	      <form method="get" action="{{route('contacts')}}">
 					  <label class="fa-btn btn2 btn-2 btn-1e"><input type="submit" value="Order Now"></label>
 					  <ul class="form_lock">
 					  	<li><i class="lock"> </i></li>

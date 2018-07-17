@@ -12,7 +12,7 @@
                                     <time datetime="2014-01-01" title="date">{{$article->created_at}}</time>
                                 </span>
                         </div>
-                        <a href="{{route('single')}}" class="mask"><img src="{{$article->picture}}" alt="image" class="img-responsive zoom-img"></a>
+                        <a href="{{route('single')}}" class="mask"><img src="{{$article->img}}" alt="image" class="img-responsive zoom-img"></a>
                         <p>{{$article->description}}</p>
                         <nav class="cl-effect-7" id="cl-effect-7">
                             <a href="#cl-effect-7">Read More</a>

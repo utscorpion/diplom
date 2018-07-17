@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use Intervention\Image\Facades\Image;
 
 class CatalogController extends Controller
 {
@@ -28,7 +29,9 @@ class CatalogController extends Controller
                     $arrayProduct['tag'] = 'design';
                     break;
             }
-            $arrayProduct['picture'] =  $productAtr['picture'];
+            $url = $productAtr['picture'];
+            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            $arrayProduct['picture'] =  "images/cache/$url";
             $arrayProduct['description'] =  $productAtr['description'];
             $array[] = $arrayProduct;
         }

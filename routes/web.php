@@ -25,8 +25,6 @@ Route::post('/contacts', ['as' => 'send', 'uses' => 'ContactsController@send']);
 
 
 
-
-
 /*Route::group(['middleware' => 'web'], function () {
     Route::match(['get', 'post'], '/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show']);
     Route::auth();

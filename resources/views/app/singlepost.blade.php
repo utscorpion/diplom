@@ -6,14 +6,12 @@
             <div class="col-md-8">
                 <div class="post1">
                     <div class="post1_header">
-                        <span class="post1_header_by" title="admin"><a href="{{route('catalog')}}">Каталог</a></span>
-                        <span class="post1_header_by" title="admin"><a href="#">|{!! $product['category'] !!}</a></span>
-                        <span class="post1_header_by" title="admin"><a href="#">|{!! $product['subcategory'] !!}</a></span>
+                        <span class="post1_header_by" title="admin"><a href="{{route('blog')}}">Блог</a></span>
+                        <span class="post1_header_by" title="admin"><a href="#">|{!! $product['tag'] !!}</a></span>
                     </div>
                     <h3>{!! $product['title'] !!}</h3>
                     <img src="{{asset($product['picture'])}}" class="img-responsive" alt="">
-                    <h3>{!! $product['description'] !!}</h3>
-                    <p>{!! $product['characteristic'] !!}</p>
+                    <h4>{!! $product['body'] !!}</h4>
                 </div>
                 <ul class="comment-list">
                     <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>

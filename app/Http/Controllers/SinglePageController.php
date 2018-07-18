@@ -2,18 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
+use App\Category;
+use App\Admin\Models\Subcategory;
 
 class SinglePageController extends Controller
 {
-
-
-
-
-
-    public function show()
+    public function execute(Request $request)
     {
-        dd($data);
-        return view('app.single');
+        /*$arr = explode('/', $request->getUri());
+        dd($arr);*/
+
+        $products = Product::all();
+        $product = $products->find($request->id)->getAttributes();
+
+        $categoryId = Category::find($product['category_id'])->getAttributes()['title'];
+        $subcategoryId = Subcategory::find($product['subcategory_id'])->getAttributes()['title'];
+
+        $product['category'] = $categoryId;
+        $product['subcategory'] = $subcategoryId;
+
+        return view('app.single', ['product' => $product]);
     }
 }

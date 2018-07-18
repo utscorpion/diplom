@@ -17,6 +17,7 @@ class CatalogController extends Controller
         foreach ($products as $product) {
             $arrayProduct = [];
             $productAtr = $product->getAttributes();
+            $arrayProduct['id'] =  $productAtr['id'];
             $arrayProduct['title'] =  $productAtr['title'];
             switch (Category::find($productAtr['category_id'])->getAttributes()['title']){
                 case 'БАД':

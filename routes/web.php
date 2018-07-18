@@ -17,7 +17,8 @@ Route::get('/blog', ['as' => 'blog', 'uses' => 'BlogController@show']);
 
 Route::get('/catalog', ['as' => 'catalog', 'uses' => 'CatalogController@show']);
 
-Route::get('/single', ['as' => 'single', 'uses' => 'SinglePageController@show']);
+Route::get('/single/{id}', ['as' => 'single', 'uses' => 'SinglePageController@execute']);
+Route::get('/singleblog/{id}', ['as' => 'singleblog', 'uses' => 'SinglePostController@execute']);
 
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show']);
 
@@ -29,7 +30,7 @@ Route::get('/home', function () {
 
 Route::get('/search', [
     'as' => 'api.search',
-    'uses' => 'Api\SearchController@search'
+    'uses' => 'SearchController@search'
 ]);
 
 

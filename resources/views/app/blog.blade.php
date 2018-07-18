@@ -28,7 +28,7 @@
                 <ul class="blog-list1">
                     <h3>Tags</h3>
                     @foreach($tags as $tag)
-                        <li><a href="#">{{$tag}}</a></li>
+                        <li><a href={{action('SinglePageController@show', $tag)}}>{{$tag}}</a></li>
                     @endforeach
                 </ul>
             </div>

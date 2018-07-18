@@ -72,20 +72,6 @@
                         <li><a href="#">July 2014 <span class="badge pull-right">22</span></a></li>
                     </ul>
                 </div>
-                <ul class="blog-list1">
-                    <h3>Tags</h3>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Html5</a></li>
-                    <li><a href="#">Wordpress</a></li>
-                    <li><a href="#">Logo</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Wordpress</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Html5</a></li>
-                    <li><a href="#">Wordpress</a></li>
-                    <li><a href="#">Logo</a></li>
-                </ul>
                 <ul class="recent-list">
                     <h3>Recent Posts</h3>
                     <li><a href="#">aliquam erat volutpat</a><br><span>25 April 2014</span></li>

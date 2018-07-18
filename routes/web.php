@@ -23,6 +23,15 @@ Route::get('/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show'
 
 Route::post('/contacts', ['as' => 'send', 'uses' => 'ContactsController@send']);
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/search', [
+    'as' => 'api.search',
+    'uses' => 'Api\SearchController@search'
+]);
+
 
 
 /*Route::group(['middleware' => 'web'], function () {

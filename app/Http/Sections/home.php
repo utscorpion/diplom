@@ -80,10 +80,10 @@ class home extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('tagline', 'Title')->required(),
-            AdminFormElement::wysiwyg('product_1', 'Описание часть 1', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_2', 'Описание часть 2', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_3', 'Описание часть 3', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_4', 'Описание часть 4', 'simplemde')->required(),
+            AdminFormElement::text('product_1', 'Описание часть 1')->required(),
+            AdminFormElement::text('product_2', 'Описание часть 2')->required(),
+            AdminFormElement::text('product_3', 'Описание часть 3')->required(),
+            AdminFormElement::text('product_4', 'Описание часть 4')->required(),
         ]);
     }
 
@@ -94,10 +94,10 @@ class home extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('tagline', 'Title')->required(),
-            AdminFormElement::wysiwyg('product_1', 'Описание часть 1', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_2', 'Описание часть 2', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_3', 'Описание часть 3', 'simplemde')->required(),
-            AdminFormElement::wysiwyg('product_4', 'Описание часть 4', 'simplemde')->required(),
+            AdminFormElement::text('product_1', 'Описание часть 1')->required(),
+            AdminFormElement::text('product_2', 'Описание часть 2')->required(),
+            AdminFormElement::text('product_3', 'Описание часть 3')->required(),
+            AdminFormElement::text('product_4', 'Описание часть 4')->required(),
         ]);
     }
 

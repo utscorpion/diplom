@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -88,13 +88,13 @@ return [
         'secret' => env('ALGOLIA_SECRET', 'd30ef101a548a65bd3585126bb05c0b4'),
     ],
 
-/*    'mysql' => [
+    'mysql' => [
         'mode' => 'NATURAL_LANGUAGE',
         'model_directories' => [app_path()],
         'min_search_length' => 0,
         'min_fulltext_search_length' => 4,
         'min_fulltext_search_fallback' => 'LIKE',
         'query_expansion' => false
-    ]*/
+    ]
 
 ];

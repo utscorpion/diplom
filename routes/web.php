@@ -30,7 +30,11 @@ Route::get('/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show'
 
 Route::post('/contacts', ['as' => 'send', 'uses' => 'ContactsController@send']);
 
-Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@search']);
+Route::resource('/search', 'SearchController')->only([
+    'index', 'store'
+]);
+
+/*Route::match(['get', 'post'], '/search', ['as' => 'search', 'uses' => 'SearchController@search']);*/
 
 Route::get('/home', function () {
     return view('home');

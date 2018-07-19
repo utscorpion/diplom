@@ -7,14 +7,23 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public function index()
     {
 
-       if($request->isMethod('post')){
+        $beers = Product::search('Коэнзим')->get();
+        dd($beers);
 
-       } else {
-           return view('app.search');
-       }
-
+       /*return view('app.search');*/
     }
+
+/*    public function store(Request $request)
+    {
+        dd($request->isMethod('GET'));
+        if($request->isMethod('POST')){
+
+        } else {
+            return view('app.search');
+        }
+
+    }*/
 }

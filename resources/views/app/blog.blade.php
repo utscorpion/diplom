@@ -7,6 +7,11 @@
                 <span class="post1_header_by" title="admin"><a href="{{route('blog')}}">Блог</a></span>
                 <p></p>
             </div>
+            <form action="{{'searchpost'}}" method="post">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="text" name="request">
+                <input type="submit" name="button" value="ПОИСК">
+            </form>
             <div class="col-md-8">
 
                 @foreach($articles as $article)

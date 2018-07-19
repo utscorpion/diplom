@@ -49,7 +49,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="{{route('catalog')}}">Catalog</a></li>
 					<li class="active"><a href="{{route('blog')}}">Blog</a></li>
 					<li><a href="{{route('contacts')}}">Contacts</a></li>
-					<li><a href="{{'/search'}}">Search</a></li>
 				</ul>
 				<script type="text/javascript" src="{{asset('js/nav.js')}}"></script>
 				<script type="text/javascript">

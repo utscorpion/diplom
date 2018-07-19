@@ -6,6 +6,11 @@
 		<div class="wrapper cf">
 		<!-- portfolio content-->
 			<div><a href="{{route('catalog')}}">Каталог</a><a href="{{route('catalog')}}">{{--{{$products['sort']}}--}}</a></div>
+			<form action="{{'search'}}" method="post">
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<input type="text" name="request">
+				<input type="submit" name="button" value="ПОИСК">
+			</form>
 		<div id="portfolio-content" class="cf">
 			<a href="{{route('catalogup')}}">&#9650;</a>
 			<a href="{{route('catalogdown')}}">&#9660;</a>

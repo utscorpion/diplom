@@ -19,10 +19,12 @@ class BlogController extends Controller
 
     public function getArticles ()
     {
-        $articles = DB::table('news')->paginate(1);
+        $articles = DB::table('news')->paginate(2);
         foreach ($articles as $article) {
             $url = $article->picture;
-            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            Image::make($url)->resize(690, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save("images/cache/$url");
             $article->img = "images/cache/$url";
             $article->tag = Tag::find($article->tag_id)->getAttributes()['title'];
         }
@@ -34,8 +36,8 @@ class BlogController extends Controller
         $articles = DB::table('news')->where('tag_id', $id)->paginate(1);
         foreach ($articles as $article) {
             $url = $article->picture;
-            Image::make($url)->resize(300, 200)->save("images/cache/$url");
-            $article->img = "images/cache/$url";
+           // Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            $article->img = $url;
             $article->tag = Tag::find($article->tag_id)->getAttributes()['title'];
         }
         return $articles;

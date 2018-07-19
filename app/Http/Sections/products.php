@@ -74,7 +74,7 @@ class products extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
+            AdminFormElement::wysiwyg('description', 'Описание', 'simplemde')->required(),
             AdminFormElement::wysiwyg('characteristic', 'Характеристика', 'simplemde')->required(),
             AdminFormElement::select('category_id')->setLabel('Категория')
                 ->setModelForOptions(\App\Admin\Models\Category::class)
@@ -97,7 +97,7 @@ class products extends Section implements Initializable
     {
         return AdminForm::panel()->addBody([
             AdminFormElement::text('title', 'Title')->required(),
-            AdminFormElement::text('description', 'Описание')->required(),
+            AdminFormElement::wysiwyg('description', 'Описание', 'simplemde')->required(),
             AdminFormElement::wysiwyg('characteristic', 'Характеристика', 'simplemde')->required(),
             AdminFormElement::select('category_id')->setLabel('Категория')
                 ->setModelForOptions(\App\Admin\Models\Category::class)

@@ -30,14 +30,12 @@ Route::get('/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show'
 
 Route::post('/contacts', ['as' => 'send', 'uses' => 'ContactsController@send']);
 
+Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@search']);
+
 Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/search', [
-    'as' => 'api.search',
-    'uses' => 'SearchController@search'
-]);
 
 
 

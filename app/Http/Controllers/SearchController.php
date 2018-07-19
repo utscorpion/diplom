@@ -9,9 +9,12 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        dd('!!!');
 
-        /*$beers = Product::search('БАД')->get();
-        dd($beers);*/
+       if($request->isMethod('post')){
+
+       } else {
+           return view('app.search');
+       }
+
     }
 }

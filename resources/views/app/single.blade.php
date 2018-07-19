@@ -12,8 +12,8 @@
                     </div>
                     <h3>{!! $product['title'] !!}</h3>
                     <img src="{{asset($product['picture'])}}" class="img-responsive" alt="">
-                    <h3>{!! $product['description'] !!}</h3>
-                    <p>{!! $product['characteristic'] !!}</p>
+                    <h3>{!! $product['characteristic'] !!}</h3>
+                    <p>{!! $product['description'] !!}</p>
                 </div>
                 <ul class="comment-list">
                     <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>

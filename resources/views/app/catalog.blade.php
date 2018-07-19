@@ -25,7 +25,7 @@
 						<figcaption>
 							<a href="{{route('single', array('id' => $product['id']))}}"><h4 class="heading">{{$product['title']}}</h4></a>
 							<div class="portfolio-cat">
-								<a href="#" >{{$product['description']}}</a>
+								<a href="#" >{!! $product['characteristic'] !!}</a>
 							</div>
 						</figcaption>
 					</figure>

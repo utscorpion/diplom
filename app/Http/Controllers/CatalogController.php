@@ -34,9 +34,12 @@ class CatalogController extends Controller
                     break;
             }
             $url = $productAtr['picture'];
-            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            Image::make($url)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save("images/cache/$url");
             $arrayProduct['picture'] =  "images/cache/$url";
             $arrayProduct['description'] =  $productAtr['description'];
+            $arrayProduct['characteristic'] =  $productAtr['characteristic'];
             $array[] = $arrayProduct;
         }
        // $array['uri'] = $request->getUri();
@@ -71,9 +74,11 @@ class CatalogController extends Controller
                     break;
             }
             $url = $product->picture;
-            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            Image::make($url)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save("images/cache/$url");
             $arrayProduct['picture'] =  "images/cache/$url";
-            $arrayProduct['description'] =  $product->description;
+            $arrayProduct['characteristic'] =  $product->characteristic;
             $array[] = $arrayProduct;
         }
         // $array['uri'] = $request->getUri();
@@ -108,9 +113,11 @@ class CatalogController extends Controller
                     break;
             }
             $url = $product->picture;
-            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            Image::make($url)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save("images/cache/$url");
             $arrayProduct['picture'] =  "images/cache/$url";
-            $arrayProduct['description'] =  $product->description;
+            $arrayProduct['characteristic'] =  $product->characteristic;
             $array[] = $arrayProduct;
         }
         // $array['uri'] = $request->getUri();

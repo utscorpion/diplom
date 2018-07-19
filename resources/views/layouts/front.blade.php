@@ -111,8 +111,9 @@
                     <ul class="nav">
                         <li><a href="{{route('index')}}">Home</a></li>
                         <li><a href="{{route('catalog')}}">Catalog</a></li>
-                        <li class="actie" v><a href="{{route('blog')}}">Blog</a></li>
+                        <li class="actie"><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="{{route('contacts')}}">Contact</a></li>
+                        <li><a href="{{route('search')}}">Search</a></li>
                     </ul>
                     <script type="text/javascript" src="{{asset('js/nav.js')}}"></script>
                     <script type="text/javascript">

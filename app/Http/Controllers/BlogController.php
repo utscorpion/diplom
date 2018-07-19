@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+//use App\Article;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,15 +12,9 @@ class BlogController extends Controller
 {
     public function getTags ()
     {
-        $arrayTags = [];
 
         $tags = Tag::all();
-        foreach ($tags as $tag) {
-            $tagAtr = $tag->getAttributes();
-
-            $arrayTags[] = $tagAtr['title'];
-        }
-        return $arrayTags;
+        return $tags;
     }
 
     public function getArticles ()
@@ -30,13 +24,31 @@ class BlogController extends Controller
             $url = $article->picture;
             Image::make($url)->resize(300, 200)->save("images/cache/$url");
             $article->img = "images/cache/$url";
+            $article->tag = Tag::find($article->tag_id)->getAttributes()['title'];
         }
-
         return $articles;
     }
 
+    public function getAtrId($id)
+    {
+        $articles = DB::table('news')->where('tag_id', $id)->paginate(1);
+        foreach ($articles as $article) {
+            $url = $article->picture;
+            Image::make($url)->resize(300, 200)->save("images/cache/$url");
+            $article->img = "images/cache/$url";
+            $article->tag = Tag::find($article->tag_id)->getAttributes()['title'];
+        }
+        return $articles;
 
-    public function show()
+    }
+
+    public function show($id)
+    {
+        return view('app.blog', ['tags' => $this->getTags(), 'articles' => $this->getAtrId($id)]);
+    }
+
+
+    public function execute()
     {
         return view('app.blog', ['tags' => $this->getTags(), 'articles' => $this->getArticles()]);
     }

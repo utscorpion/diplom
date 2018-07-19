@@ -13,11 +13,17 @@
 
 Route::get('/', ['as' => 'index', 'uses' => 'IndexController@show']);
 
-Route::get('/blog', ['as' => 'blog', 'uses' => 'BlogController@show']);
+Route::get('/blog', ['as' => 'blog', 'uses' => 'BlogController@execute']);
+Route::get('/blogsingle/{tag}', ['as' => 'blogsingle', 'uses' => 'BlogController@show']);
 
-Route::get('/catalog', ['as' => 'catalog', 'uses' => 'CatalogController@show']);
+Route::get('/catalog/', ['as' => 'catalog', 'uses' => 'CatalogController@show']);
+
+Route::get('/catalogup/', ['as' => 'catalogup', 'uses' => 'CatalogController@up']);
+
+Route::get('/catalogdown/', ['as' => 'catalogdown', 'uses' => 'CatalogController@down']);
 
 Route::get('/single/{id}', ['as' => 'single', 'uses' => 'SinglePageController@execute']);
+
 Route::get('/singleblog/{id}', ['as' => 'singleblog', 'uses' => 'SinglePostController@execute']);
 
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'ContactsController@show']);

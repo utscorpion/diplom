@@ -7,7 +7,7 @@
                 <div class="post1">
                     <div class="post1_header">
                         <span class="post1_header_by" title="admin"><a href="{{route('blog')}}">Блог</a></span>
-                        <span class="post1_header_by" title="admin"><a href="#">|{!! $product['tag'] !!}</a></span>
+                        <span class="post1_header_by" title="admin"><a href="{{route('blogsingle', array('tag' => $product['id']))}}">|{!! $product['tag'] !!}</a></span>
                     </div>
                     <h3>{!! $product['title'] !!}</h3>
                     <img src="{{asset($product['picture'])}}" class="img-responsive" alt="">
